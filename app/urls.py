@@ -1,7 +1,8 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
+
 from . import views
-from account import views as accountviews
+
 app_name = 'app'
 
 urlpatterns =[
@@ -9,5 +10,5 @@ urlpatterns =[
     path('practice/', views.main, name='practice'),
     path('exam/', views.main, name='exam'),
     path('quizreg/', views.main, name='quizreg'),
-    path('grade/', views.classManage, name='grade'),
+    path('manager/', views.manage, name='manage'),
 ]

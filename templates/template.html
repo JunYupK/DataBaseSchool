@@ -28,9 +28,9 @@
                 <a href={% url 'app:practice' %}><img src="{% static 'img/nav-top-1-img1.png' %}" /></a>
                 <a href={% url 'app:exam' %}><img src="{% static 'img/nav-top-1-img2.png' %}" /></a>
                 <a href={% url 'app:quizreg' %}><img src="{% static 'img/nav-top-1-img3.png' %}" /></a>
-                <a href={% url 'app:grade' %}><img src="{% static 'img/nav-top-1-img4.png' %}" /></a>
+                <a href={% url 'account:mypage' %}><img src="{% static 'img/nav-top-1-img4.png' %}" /></a>
             </div>
-                <div class="user">
+            <div class="user">
                 {% if user.is_authenticated %}
                 <a class="nav-link" href="{% url 'account:logout' %}">{{ user.username }}<br> (로그아웃)</a>
                 {% else %}
@@ -43,11 +43,9 @@
             </div>
         </nav>
         <!-- Nav 2: 카테고리 경로 (파란줄) -->
-        <nav class="nav-top-2" style="padding-left:20px">
-            <a class="navbar-nav" href="#">카테고리1</a>
-            <a class="navbar-nav" href="#">카테고리2</a>
-            <a class="navbar-nav" href="#">카테고리3</a>
-        </nav>
+        {% block nav %}
+        {% endblock %}
+        
     </header>
 
     <!-- ======= Main ======= -->

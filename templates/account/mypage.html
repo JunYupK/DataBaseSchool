@@ -1,3 +1,7 @@
+{% extends 'app/gradenav.html' %}
+
+
+{% block content %}
 <form id="form-mypage-privacy" method="post" action="{% url 'account:mypage' %}">
     {% csrf_token %}
     <!-- ========== 아이디 ========== -->
@@ -48,3 +52,4 @@
         <button type="reset" class="btn btn-outline-dark">취소</button>
     </div>
 </form>
+{% endblock %}

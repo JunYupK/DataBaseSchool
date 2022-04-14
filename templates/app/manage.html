@@ -1,0 +1,23 @@
+{% extends 'app/gradenav.html' %}
+
+{% block content%}
+
+
+<!--수업 등록-->
+<div>
+    <form action="{% url 'app:manage' %}" method="post">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit" class="btn btn-primary">등록</button>
+    </form>
+</div>
+
+<br>
+    {% for a in model%}
+        <a href=""> {{a.classname}} </a> </br> 
+    {% endfor%}
+</div>
+
+
+
+{% endblock %}

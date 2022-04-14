@@ -5,17 +5,20 @@ from .forms import addClassForm
 def main(request):
     return render(request, 'app/main.html')
 
-def classManage(request):
+def manage(request):
+    context ={}
+    model = addClass.objects.filter(profname = request.user.id)
+    
+    context['model'] = model
     if request.method == 'POST':
         form = addClassForm(request.POST)
         if form.is_valid():
             question = form.save(commit=False)
             question.profname = request.user
             question.save()
-            print('qfqf')
-            return redirect('app:grade')
+            return redirect('app:manage')
     else:
         form = addClassForm()
-        context ={'form': form}
-
-        return render(request, 'grade/grade.html', context)
+        context['form'] = form
+        
+        return render(request, 'app/manage.html', context)
