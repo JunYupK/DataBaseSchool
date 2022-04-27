@@ -1,22 +1,61 @@
 {% extends 'app/gradenav.html' %}
+{% block title %}
+<title>Online Judge</title>
+{% endblock %}
+
+{% block css %}
+
+{% load static %}
+<link href="{% static 'css/mypage.css' %}" rel="stylesheet">
+<link href="{% static 'css/mypage_grade.css' %}" rel="stylesheet">
+{% endblock %}
+
 
 {% block content%}
+<div id="mypage">
+    <div id="mypage-grade">
+        <div class="class-list">
+                {% for c in class %}
+                    <div class="item">
+                        <a href="{% url 'app:quiz_student_print' c.id%}"> {{c.classname}}</a> <a href="{% url 'app:class_delete' deleteid=c.id %}">X</a></br> 
+                    </div>
+                {% endfor%}
+        </div>
 
+        <div class="quiz-list">
+            <div class="title">퀴즈 / 시험</div>
+            <div class="contents">
+                {% for q in quiz %}
+                    <div class="item">
+                        <a href="{% url 'app:student_print' classid=classid  quizid=q.id %}">{{q.quizname}}</a>  <a href="{% url 'app:quiz_delete' classid=classid quizdeleteid=q.id %}">X</a>
+                        <div class="datetime">
+                            <span>{{q.date|date:'Y-m-d h:i:s'}}</span>
+                        </div>
+                    </div>
+                {% endfor%}
 
-<!--수업 등록-->
-<div>
-    <form action="{% url 'app:manage' %}" method="post">
-        {% csrf_token %}
-        {{form}}
-        <button type="submit" class="btn btn-primary">등록</button>
-    </form>
+            </div>
+        </div>
+
+        <div class="student-list">
+            <div class="title">학생</div>
+            <div class="contents">
+                {% for s in student %}
+                    <div class="item">      
+                        <div class="student-name">
+                            <a > {{s.userid}}</a>
+                        </div>
+                        <div class="progress score">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 80%">80 / 100</div>
+                        </div>
+                    </div>
+                {% endfor%}
+            </div>
+        </div>
+    </div>
 </div>
 
-<br>
-    {% for a in model%}
-        <a href=""> {{a.classname}} </a> </br> 
-    {% endfor%}
-</div>
+
 
 
 

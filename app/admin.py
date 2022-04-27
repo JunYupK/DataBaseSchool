@@ -2,4 +2,4 @@ from django.contrib import admin
 from . import models
 # Register your models here.
 
-admin.site.register(models.addClass)
+admin.site.register(models.Class)
