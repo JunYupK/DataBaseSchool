@@ -1,5 +1,5 @@
 from django import forms
-from app.models import Class
+from app.models import Class, Quiz
 
 
 class addClassForm(forms.ModelForm):
@@ -11,3 +11,7 @@ class addClassForm(forms.ModelForm):
             'classname' : '수업이름',
         }
         
+class addQuiz(forms.ModelForm):
+    class Meta:
+        model = Quiz
+        fields = ['date', 'starttime','tablename', 'quizname','sqlkeyword', 'tablename', 'problemnum']

@@ -9,8 +9,7 @@ app_name = 'app'
 urlpatterns =[
     path('', views.main, name='main'),
     path('practice/', views.main, name='practice'),
-    path('exam/', views.main, name='exam'),
-    path('quizreg/', views.quizenroll_1, name='quizreg'),
+
     
     path('manage/', views.manage, name='manage'),
     #path('manage/<int:userid>', views.Class, name='class'),
@@ -24,8 +23,15 @@ urlpatterns =[
     path('manage/enroll', views.enroll, name='enroll'),
     
     #quizreg
+    path('quizreg/', views.quizreg_0, name='quizreg_0'),
+    path('quizreg/<int:classid>', views.quizreg_1, name='quizreg_1'),
+    path('quizreg/reg/<int:classid>', views.quizreg_2, name='quizreg_2'),
+    path('quizreg/reg/<int:classid>/<int:quizid>', views.quizreg_3, name='quizreg_3'),
     
-    path('quizreg/1/', views.quizreg_1, name='quizreg_1'),
+    #test
+    path('exam/', views.exam_0, name='exam_0'),
+    path('exam/<int:classid>', views.exam_1, name='exam_1'),
+    path('exam/<int:classid>/<int:quizid>', views.exam_2, name='exam_2'),
 ]
 
 

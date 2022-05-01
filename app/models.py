@@ -13,7 +13,13 @@ class Quiz(models.Model):
     quizname=models.CharField(max_length=30)
     classid = models.ForeignKey(Class, on_delete=models.CASCADE, default="")
     profid=models.ForeignKey(User, on_delete=models.CASCADE)
-    date = models.DateTimeField(null=True)
+    date = models.DateField(null=True)
+    starttime = models.TimeField(null=True)
+    endtime = models.TimeField(null=True)
+    tablename = models.CharField(max_length=40)
+    sqlkeyword = models.CharField(max_length=40)
+    problemnum = models.IntegerField()
+    
 
 class RegClass(models.Model):
     userid=models.ForeignKey(User, on_delete=models.CASCADE)
@@ -25,4 +31,5 @@ class Score(models.Model):
     classid=models.ForeignKey(Class, on_delete=models.CASCADE)
     quizid=models.ForeignKey(Quiz, on_delete=models.CASCADE)
     Score=models.FloatField(null=False, default=0)
+
     
