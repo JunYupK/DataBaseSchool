@@ -18,7 +18,7 @@
             <!-- 수업 -->
             {% for c in class %}
                 <div class="item">
-                    <div class="class-name"><a  href="{% url 'app:quizreg_1' c.id%}"> {{c.classname}}</a></div>
+                    <div class="class-name"><a  href="{% url 'app:quizreg_1' c.id%}"> {{c.classname}} {{c.group}} ({{c.profid.first_name}})</a></div>
                 </div>
             {% endfor%}
         </div>
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 {% endfor %}
-                {% if quiz%}
+                {% if classid%}
                 <div class="">
                     <a href="{% url 'app:quizreg_2' classid %}">퀴즈등록</a>
                 </div>

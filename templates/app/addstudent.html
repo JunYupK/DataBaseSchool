@@ -1,0 +1,40 @@
+{% extends 'app/gradenav.html' %}
+{% block title %}
+<title>Online Judge</title>
+{% endblock %}
+
+{% block css %}
+
+{% load static %}
+<link href="{% static 'css/mypage.css' %}" rel="stylesheet">
+<link href="{% static 'css/mypage_grade.css' %}" rel="stylesheet">
+<link href="{% static 'css/form_quiz.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+
+{% block content%}
+<form id="form-quiz-setting" method="post" action="{% url 'app:addstudent' %}">
+    <!-- ========== 날짜 ========== -->
+    {% csrf_token %}
+    <div class="row mb-4">
+        <label for="inputTime" class="col-sm-3 col-form-label quiz-enroll-label">수업</label>
+        <select class="form-select" aria-label="select table" name="classid">
+            {% for c in class%}
+            <option value={{c.id}}>{{c.classname}} {{c.group}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="row mb-4">
+        <label for="inputLimit" class="col-sm-3 col-form-label quiz-enroll-label" style="color: #4472C4;">학번</label>
+        <div class="col-sm-8">
+            <input name="studentid" id="inputLimit"  class="form-control" >
+        </div>
+    </div>
+    <!-- ========== 버튼 ========== -->
+    <div class="row mb-5 button-container">
+        <button type="submit" class="btn btn-primary" style="background-color: #4472C4;">등록</button>
+        <button type="reset" class="btn btn-outline-dark">초기화</button>
+    </div>
+</form>
+{% endblock %}

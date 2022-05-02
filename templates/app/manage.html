@@ -17,7 +17,7 @@
         <div class="class-list">
                 {% for c in class %}
                     <div class="item">
-                        <a href="{% url 'app:quiz_student_print' c.id%}"> {{c.classname}}</a> <a href="{% url 'app:class_delete' deleteid=c.id %}">X</a></br> 
+                        <a href="{% url 'app:quiz_student_print' c.id%}"> {{c.classname}} {{c.group}} ({{c.profid.first_name}})</a> <a href="{% url 'app:class_delete' deleteid=c.id %}">X</a></br> 
                     </div>
                 {% endfor%}
         </div>
@@ -45,9 +45,13 @@
                         <div class="student-name">
                             <a > {{g.student_name}}</a>
                         </div>
+                        {% if g.grade == "미제출"%}
+                        미제출
+                        {% else%}
                         <div class="progress score">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{g.max_score}}%">{{g.max_score}} / 100</div>
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: '{{g.grade}}%'">{{g.grade}} / 100</div>
                         </div>
+                        {% endif%}
                     </div>
                 {% endfor%}
             </div>

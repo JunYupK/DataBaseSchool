@@ -3,7 +3,7 @@ from this import d
 from django.shortcuts import get_object_or_404, render, redirect
 from pytz import timezone
 from .models import Class, Quiz, RegClass, Score
-from .forms import addClassForm, addQuiz
+from .forms import addClassForm, addQuiz, addRegClass
 from django.db.models import Max, Min, Avg, Count
 import datetime as dt
 from account.models import CustomUser as User
@@ -60,16 +60,18 @@ def student_print(request, classid, quizid):
     context ={}
     context['quiz'] =  Quiz.objects.filter(classid= classid, profid = request.user.id)
     context['class'] = Class.objects.filter(profid = request.user.id)
-    grade = Score.objects.filter(classid = classid, quizid= quizid).values('studentid')\
-    .annotate(max_score=Max('Score'))
     
-    for row in grade:
-        row['student_name']=\
-            User.objects.filter(id = row['studentid']).first().username
-    context['grade'] = grade
-    a= Score.objects.filter(classid = classid, quizid= quizid)
-    print(a)
-    print(grade)
+    student = RegClass.objects.filter(classid = classid)
+
+    for row in student:
+        row.student_name = User.objects.filter(id = row.userid.id).first().first_name
+        grade = Score.objects.filter(classid = classid, quizid= quizid, studentid=row.userid).values('studentid').annotate(max_score=Max('Score')).first()
+        if (grade):
+            row.grade = grade['max_score']
+        else:
+            row.grade = '미제출'
+    
+    context['grade'] = student
     return render(request, 'app/manage.html', context)
 
 def quizreg_2(request, classid):
@@ -136,3 +138,49 @@ def exam_1(request, classid):
 def exam_2(request, classid, quizid):
     
     return render(request, 'app/test_1.html')
+
+#addclass
+def addclass(request):
+    context = {}
+    if request.method == 'POST':
+        form = addClassForm(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.profid = request.user
+            form.save()
+            return redirect('app:manage')
+    
+        return redirect('app:manage')
+    return render(request, 'app/addclass.html')
+
+#addclass
+def addstudent(request):
+    context = {}
+    context['class'] = Class.objects.filter(profid = request.user)
+    
+    if request.POST:
+        form = addRegClass(request.POST)
+        if(form.is_valid()):
+            reg=form.save(commit=False)
+            userid = User.objects.get(username = request.POST.get('studentid'))
+            if(userid):
+                reg.userid = userid
+                isvalue = RegClass.objects.filter(classid=request.POST.get('classid'), userid= reg.userid)
+            
+                if(not isvalue):
+                    reg.save()
+        
+    return render(request, 'app/addstudent.html', context)
+
+def addstudent_2(request, classid):
+    context = {}
+    context['class'] = Class.objects.filter(profid = request.user)
+    context['student'] = RegClass.objects.filter(classid = classid)
+    context['classid'] = classid
+    return render(request, 'app/addstudent.html', context)
+
+def addstudent_3(request, classid, id):
+    context = {}
+    context['class'] = Class.objects.filter(profid = request.user)
+    context['student'] = RegClass.objects.filter(classid = classid)
+    return render(request, 'app/addstudent.html', context)

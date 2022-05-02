@@ -22,6 +22,12 @@ urlpatterns =[
     
     path('manage/enroll', views.enroll, name='enroll'),
     
+    #addclass
+    path('manage/addclass', views.addclass, name='addclass'),
+    
+    #addstudent
+    path('manage/addstudent', views.addstudent, name='addstudent'),
+    
     #quizreg
     path('quizreg/', views.quizreg_0, name='quizreg_0'),
     path('quizreg/<int:classid>', views.quizreg_1, name='quizreg_1'),

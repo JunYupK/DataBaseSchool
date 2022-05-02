@@ -12,6 +12,8 @@
 {% block nav %}
 <nav class="nav-top-2" style="padding-left:20px">
     <a class="navbar-nav" href="{% url 'account:mypage' %}">마이페이지</a>
-    <a class="navbar-nav" href="{% url 'app:manage' %}">수업관리</a>
+    <a class="navbar-nav" href="{% url 'app:manage' %}">성적확인</a>
+    <a class="navbar-nav" href="{% url 'app:addclass' %}">수업등록</a>
+    <a class="navbar-nav" href="{% url 'app:addstudent' %}">학생등록</a>
 </nav>
 {% endblock %}
