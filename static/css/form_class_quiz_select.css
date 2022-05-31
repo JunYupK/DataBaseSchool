@@ -2,9 +2,8 @@
 # Select Class and Quiz
 --------------------------------------------------------------*/
 
-
 #form-class-quiz {
-    width: 800px;
+    width: 1200px;
     height: 480px;
     position: absolute;
     left: 50%;
@@ -13,22 +12,21 @@
     font-family: GMarketSansMedium;
 }
 
-
 #select-class-quiz {
     margin: 30px;
     height: 480px;
     display: grid;
     grid-template-areas:
-        'class quiz';
+        'class-list quiz-list problem-list';
     gap: 50px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 3fr 3fr;
     font-family: GmarketSansMedium;
 }
 
     #select-class-quiz .class-list {
         background-color: #FAFAFA;
         border-radius: 20px;
-        grid-area: class;
+        grid-area: class-list;
         padding: 25px;
     }
 
@@ -82,7 +80,7 @@
             }
 
     #select-class-quiz .quiz-list {
-        grid-area: quiz;
+        grid-area: quiz-list;
         text-align: center;
         display: grid;
         grid-template-areas:
@@ -119,16 +117,19 @@
             border-bottom-right-radius: 10px;
             overflow: scroll;
             text-align: left;
-            padding: 15px;
             font-size: 18px;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
 
             #select-class-quiz .quiz-list .contents .item {
-                padding-bottom: 10px;
+                padding: 10px;
+                padding-bottom: 5px;
                 display: grid;
                 grid-template-areas:
                     'name score';
-                grid-template-columns: auto 1fr;
+                grid-template-columns: 100px 1fr;
+                border-bottom: 1px dotted black;
             }
 
                 #select-class-quiz .quiz-list .contents .item a {
@@ -139,23 +140,227 @@
                 }
 
                     #select-class-quiz .quiz-list .contents .item a:hover {
-                        border-bottom: 1px solid black;
+                        color: #4472C4;
                     }
 
                 #select-class-quiz .quiz-list .contents .item .score {
                     grid-area: score;
-                    margin-top:3px;
+                    margin-top: 3px;
+                    font-size: 9pt;
                 }
 
                 #select-class-quiz .quiz-list .contents .item .datetime {
                     grid-area: score;
-                    margin-top:2px;
-                    padding-top:2px;
+                    margin-top: 2px;
+                    padding-top: 2px;
                     border-radius: 4px;
-                    font-size: 10pt;
+                    font-size: 9pt;
                     text-align: center;
                     background-color: #E9ECEF;
                     border-radius: 5px;
-                    display:inline;
-                    height:20px;
+                    display: inline;
+                    height: 20px;
                 }
+
+            #select-class-quiz .quiz-list .contents .add-quiz {
+                margin-top: 15px;
+                text-align: center;
+            }
+
+                #select-class-quiz .quiz-list .contents .add-quiz > a {
+                    color: black;
+                    font-size: 24px;
+                    padding: 8px 8px 4px 8px;
+                }
+
+                    #select-class-quiz .quiz-list .contents .add-quiz > a:hover {
+                        color: #888888;
+                    }
+
+    #select-class-quiz #problem-list {
+        text-align: center;
+        display: grid;
+        grid-template-areas:
+            'title title title'
+            'subtitle-number subtitle-result subtitle-rate'
+            'item item item';
+        gap: 1px;
+        grid-template-rows: auto auto 1fr;
+        grid-template-columns: 56px 202px 85px;
+        font-family: GmarketSansMedium;
+        border: 1px solid black;
+        border-radius: 12px;
+        background-color: black;
+        height: 480px;
+    }
+
+        #select-class-quiz #problem-list .title {
+            text-align: center;
+            grid-area: title;
+            background-color: #4472C4;
+            color: white;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-size: 24px;
+            padding-left: 50px;
+            display: grid;
+            grid-template-columns: 1fr 50px;
+        }
+
+            #select-class-quiz #problem-list .title .text {
+                padding-top: 3px;
+            }
+
+            #select-class-quiz #problem-list .title > a {
+                padding-top: 2px;
+            }
+
+        #select-class-quiz #problem-list .subtitle-number {
+            grid-area: subtitle-number;
+            background-color: #F2F2F2;
+            color: black;
+            font-size: 18px;
+            padding-top: 5px;
+        }
+
+        #select-class-quiz #problem-list .subtitle-result {
+            grid-area: subtitle-result;
+            background-color: #F2F2F2;
+            color: black;
+            font-size: 18px;
+            padding-top: 5px;
+        }
+
+        #select-class-quiz #problem-list .subtitle-rate {
+            grid-area: subtitle-rate;
+            background-color: #F2F2F2;
+            color: black;
+            font-size: 18px;
+            padding-top: 5px;
+        }
+
+        #select-class-quiz #problem-list .contents {
+            grid-area: item;
+            background-color: #F2F2F2;
+            color: black;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+            #select-class-quiz #problem-list .contents .item {
+                display: grid;
+                grid-template-areas: 'number result rate';
+                gap: 1px;
+                grid-template-columns: 55px auto 86px;
+                height: 48px;
+                border-bottom: 1px dotted black;
+                background-color: white;
+                text-align: center;
+            }
+
+                #select-class-quiz #problem-list .contents .item .number {
+                    background-color: white;
+                    text-align: center;
+                    grid-area: number;
+                    font-size: 20px;
+                    vertical-align: middle;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding-top: 3px;
+                }
+
+                    #select-class-quiz #problem-list .contents .item .number a {
+                        color: black;
+                        font-size: 18px;
+                    }
+
+                        #select-class-quiz #problem-list .contents .item .number a:hover {
+                            color: #AAAAAA;
+                        }
+
+                #select-class-quiz #problem-list .contents .item .result {
+                    background-color: white;
+                    text-align: center;
+                    padding: 5px 10px;
+                    border-left: 1px solid black;
+                    grid-area: result;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                    #select-class-quiz #problem-list .contents .item .result > button {
+                        width: 80px;
+                        padding-bottom: 1px;
+                    }
+
+                #select-class-quiz #problem-list .contents .item .rate {
+                    background-color: white;
+                    border-left: 1px solid black;
+                    font-size: 18px;
+                    padding-top: 5px;
+                    grid-area: rate;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 16px;
+                    font-family: GMarketSansMedium;
+                }
+
+                    #select-class-quiz #problem-list .contents .item .rate.easy {
+                        color: forestgreen;
+                    }
+
+                    #select-class-quiz #problem-list .contents .item .rate.normal {
+                        color: orange;
+                    }
+
+                    #select-class-quiz #problem-list .contents .item .rate.hard {
+                        color: red;
+                    }
+
+
+
+.student-list {
+    grid-area: student;
+    text-align: center;
+    display: grid;
+    grid-template-areas:
+        'title'
+        'contents';
+    gap: 1px;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    font-family: GmarketSansMedium;
+    border: 1px solid black;
+    border-radius: 12px;
+    background-color: black;
+}
+
+    .student-list .title {
+        text-align: center;
+        grid-area: title;
+        background-color: #4472C4;
+        color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        font-size: 24px;
+        padding-top: 6px;
+        padding-left: 50px;
+        display: grid;
+        grid-template-columns: 1fr 50px;
+    }
+
+    .student-list .contents {
+        grid-area: contents;
+        background-color: white;
+        color: black;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        overflow-y: scroll;
+        height: 435px;
+    }
