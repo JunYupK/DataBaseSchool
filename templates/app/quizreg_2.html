@@ -71,9 +71,22 @@
                 {%for item, value in makequery.items %}
                 <div class="item">
                     <!-- (좌) 난이도 -->
-                    <div class="difficulty easy">{{value}}
+                    {% if value == "상" %}
+                    <div class="difficulty hard">
+                        {{value}}
                         <input style="display:none" readonly name='nan{{forloop.counter}}' value='{{value}}'>
                     </div>
+                    {% elif value == "중" %}
+                    <div class="difficulty normal">
+                        {{value}}
+                        <input style="display:none" readonly name='nan{{forloop.counter}}' value='{{value}}'>
+                    </div>
+                    {% else %}
+                    <div class="difficulty easy">
+                        {{value}}
+                        <input style="display:none" readonly name='nan{{forloop.counter}}' value='{{value}}'>
+                    </div>
+                    {% endif %}
                     <!-- (우) 쿼리 -->
                     <div class="query">
                         <input style="display:none" readonly name='query{{forloop.counter}}' value='{{item}}'>
