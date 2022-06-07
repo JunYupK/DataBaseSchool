@@ -6,3 +6,19 @@
 <메인화면>
 
 
+
+![퀴즈등록](https://user-images.githubusercontent.com/53340295/172398316-aee212c9-ac2f-4adc-887e-58a79104c9ef.png)
+
+<퀴즈 등록>
+
+
+
+![퀴즈생성](https://user-images.githubusercontent.com/53340295/172398372-8e2e80da-fbae-4517-87ec-5394ed26f400.png)
+
+<퀴즈 생성>
+
+
+
+![oj부분](https://user-images.githubusercontent.com/53340295/172398404-fe1cd655-757a-4d27-98bd-7bb6dc289dea.png)
+
+<oj>
