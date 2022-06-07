@@ -7,30 +7,12 @@
 
 
 
-![퀴즈등록](https://user-images.githubusercontent.com/53340295/172398316-aee212c9-ac2f-4adc-887e-58a79104c9ef.png)
-
-<퀴즈 등록>
+![db1](https://user-images.githubusercontent.com/53340295/172399194-b5971c2d-c622-429f-8bcd-aca6954df312.gif)
 
 
 
-![퀴즈생성](https://user-images.githubusercontent.com/53340295/172398372-8e2e80da-fbae-4517-87ec-5394ed26f400.png)
-
-<퀴즈 생성>
+![db2](https://user-images.githubusercontent.com/53340295/172399228-2c3e4cf5-55a0-4f87-bcd7-44a6a2fb2187.gif)
 
 
 
-![oj부분](https://user-images.githubusercontent.com/53340295/172398404-fe1cd655-757a-4d27-98bd-7bb6dc289dea.png)
-
-<oj>
-
-  
-  
-
-https://user-images.githubusercontent.com/53340295/172398658-7154bd55-6e4e-4cf8-ae76-87a05baa18b9.mp4
-
-
-  
-  
-
-https://user-images.githubusercontent.com/53340295/172398687-b1a70b0d-473f-4c09-b743-cb0dcf71078c.mp4
-
+Automated Online Judge 시스템으로 아무 데이터 테이블이나 넣으면 여러가지 유형의 sql 문제를 랜덤하게 자동으로 만들어주고, 출제된 퀴즈를 바로 온라인 상에서 풀어볼 수 있는 학습서비스입니다.
