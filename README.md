@@ -22,3 +22,15 @@
 ![oj부분](https://user-images.githubusercontent.com/53340295/172398404-fe1cd655-757a-4d27-98bd-7bb6dc289dea.png)
 
 <oj>
+
+  
+  
+
+https://user-images.githubusercontent.com/53340295/172398658-7154bd55-6e4e-4cf8-ae76-87a05baa18b9.mp4
+
+
+  
+  
+
+https://user-images.githubusercontent.com/53340295/172398687-b1a70b0d-473f-4c09-b743-cb0dcf71078c.mp4
+
