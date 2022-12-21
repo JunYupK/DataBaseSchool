@@ -25,3 +25,7 @@ Automated Online Judge 시스템으로 아무 데이터 테이블이나 넣으�
 
 
 [요구사항분석서](https://drive.google.com/file/d/13p6PAPpgcZ5E5NwdGDRvfsVLDYK9Sd2a/view?usp=sharing)
+
+[최종 보고서](https://drive.google.com/file/d/1udiIUnnKPQPDu7Hfr8UkzFQzzu4_bHeG/view?usp=share_link)
+
+[결과 보고서](https://drive.google.com/file/d/1sOE5y33ZHfO5HjXz8qAVg_qcHYXUpnMK/view?usp=share_link)
