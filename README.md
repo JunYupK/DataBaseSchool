@@ -24,4 +24,4 @@ Automated Online Judge 시스템으로 아무 데이터 테이블이나 넣으�
 출제된 퀴즈를 바로 온라인 상에서 풀어볼 수 있는 학습서비스입니다.
 
 
-[요구사항분석서](https://drive.google.com/file/d/13p6PAPpgcZ5E5NwdGDRvfsVLDYK9Sd2a/export?format=pdf)
+[요구사항분석서](https://drive.google.com/file/d/13p6PAPpgcZ5E5NwdGDRvfsVLDYK9Sd2a/view?usp=sharing)
